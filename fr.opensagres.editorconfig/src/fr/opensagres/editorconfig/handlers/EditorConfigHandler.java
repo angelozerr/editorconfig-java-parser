@@ -1,0 +1,33 @@
+package fr.opensagres.editorconfig.handlers;
+
+import fr.opensagres.editorconfig.EditorConfigParser;
+
+public interface EditorConfigHandler<S, O> {
+
+	public void setParser(EditorConfigParser editorConfigParser);
+	
+	public S startSection();
+
+	public void endSection(S section);
+
+	public void startMultiPatternSection(S section);
+
+	public void endMultiPatternSection(S section);
+
+	public void startPattern(S section, int i);
+
+	public void endPattern(S section, String pattern, int i);
+
+	public O startOption();
+
+	public void endOption(O option);
+
+	public void startOptionName(O option);
+
+	public void endOptionName(O option, String name);
+
+	public void startOptionValue(Object option, String name);
+
+	public void endOptionValue(Object option, String value, String name);
+
+}

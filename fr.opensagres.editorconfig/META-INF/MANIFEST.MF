@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: editorconfig-parser
+Bundle-SymbolicName: fr.opensagres.editorconfig
+Bundle-Version: 1.0.0.qualifier
+Export-Package: fr.opensagres.editorconfig,
+ fr.opensagres.editorconfig.handlers

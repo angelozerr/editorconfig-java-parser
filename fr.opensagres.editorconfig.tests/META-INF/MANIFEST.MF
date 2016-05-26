@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: editorconfig-parser tests
+Bundle-SymbolicName: fr.opensagres.editorconfig.tests
+Bundle-Version: 1.0.0.qualifier
+Export-Package: fr.opensagres.editorconfig.tests,
+ fr.opensagres.editorconfig.tests.handlers
+Require-Bundle: fr.opensagres.editorconfig;bundle-version="1.0.0",
+ org.junit;bundle-version="4.12.0"
