@@ -17,3 +17,9 @@ throws the exception (with location line, column and offset) where errors occur:
 Exception in thread "main" fr.opensagres.editorconfig.SectionNotClosedException: 
 Section not closed. Expected ']' at 1:3 (2)
 ```
+
+# SWT Demo
+
+fr.opensagres.editorconfig.swt contains a little demo which consumes the parser:
+
+![EditorConfigDemo](EditorConfigDemo.gif)
