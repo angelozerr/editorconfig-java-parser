@@ -14,5 +14,6 @@ parser.parse("[*");
 throws the exception (with location line, column and offset) where errors occur:
 
 ```
-Exception in thread "main" fr.opensagres.editorconfig.SectionNotClosedException: Section not closed. Expected ']' at 1:3 (2)
+Exception in thread "main" fr.opensagres.editorconfig.SectionNotClosedException: 
+Section not closed. Expected ']' at 1:3 (2)
 ```
