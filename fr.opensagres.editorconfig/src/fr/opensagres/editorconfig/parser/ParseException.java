@@ -1,4 +1,4 @@
-package fr.opensagres.editorconfig;
+package fr.opensagres.editorconfig.parser;
 
 /**
  * An unchecked exception to indicate that an input does not qualify as valid
@@ -8,10 +8,16 @@ package fr.opensagres.editorconfig;
 public class ParseException extends RuntimeException {
 
 	private final Location location;
+	private final ErrorType errorType;
 
 	ParseException(String message, Location location) {
+		this(message, location, ErrorType.ParsingError);
+	}
+
+	ParseException(String message, Location location, ErrorType errorType) {
 		super(message + " at " + location);
 		this.location = location;
+		this.errorType = errorType;
 	}
 
 	/**
@@ -23,4 +29,7 @@ public class ParseException extends RuntimeException {
 		return location;
 	}
 
+	public ErrorType getErrorType() {
+		return errorType;
+	}
 }

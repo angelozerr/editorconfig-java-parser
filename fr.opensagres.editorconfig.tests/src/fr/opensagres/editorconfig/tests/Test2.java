@@ -3,10 +3,10 @@ package fr.opensagres.editorconfig.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fr.opensagres.editorconfig.EditorConfigParser;
-import fr.opensagres.editorconfig.ParseException;
-import fr.opensagres.editorconfig.SectionNotClosedException;
 import fr.opensagres.editorconfig.handlers.LoggerEditorConfigHandler;
+import fr.opensagres.editorconfig.parser.EditorConfigParser;
+import fr.opensagres.editorconfig.parser.ParseException;
+import fr.opensagres.editorconfig.parser.SectionNotClosedException;
 
 public class Test2 {
 

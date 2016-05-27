@@ -1,7 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: editorconfig-parser
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Bundle-SymbolicName: fr.opensagres.editorconfig
 Bundle-Version: 1.0.0.qualifier
 Export-Package: fr.opensagres.editorconfig,
- fr.opensagres.editorconfig.handlers
+ fr.opensagres.editorconfig.handlers,
+ fr.opensagres.editorconfig.model,
+ fr.opensagres.editorconfig.parser,
+ fr.opensagres.editorconfig.validator
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

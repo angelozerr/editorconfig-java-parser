@@ -1,5 +1,7 @@
 package fr.opensagres.editorconfig.handlers;
 
+import fr.opensagres.editorconfig.parser.ParseException;
+
 public class EditorConfigHandlerAdapter<S, O> extends AbstractEditorConfigHandler<S, O> {
 
 	@Override
@@ -44,26 +46,26 @@ public class EditorConfigHandlerAdapter<S, O> extends AbstractEditorConfigHandle
 
 	@Override
 	public void startOptionName(O option) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void endOptionName(O option, String name) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void startOptionValue(Object option, String name) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void endOptionValue(Object option, String value, String name) {
-		// TODO Auto-generated method stub
 
 	}
 
+	@Override
+	public void error(ParseException e) {
+
+	}
 }

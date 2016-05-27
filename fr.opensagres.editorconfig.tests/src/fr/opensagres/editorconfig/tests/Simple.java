@@ -1,7 +1,7 @@
 package fr.opensagres.editorconfig.tests;
 
-import fr.opensagres.editorconfig.EditorConfigParser;
 import fr.opensagres.editorconfig.handlers.LoggerEditorConfigHandler;
+import fr.opensagres.editorconfig.parser.EditorConfigParser;
 
 public class Simple {
 

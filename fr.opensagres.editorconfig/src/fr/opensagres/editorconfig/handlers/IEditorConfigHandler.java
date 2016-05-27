@@ -1,8 +1,9 @@
 package fr.opensagres.editorconfig.handlers;
 
-import fr.opensagres.editorconfig.EditorConfigParser;
+import fr.opensagres.editorconfig.parser.EditorConfigParser;
+import fr.opensagres.editorconfig.parser.ParseException;
 
-public interface EditorConfigHandler<S, O> {
+public interface IEditorConfigHandler<S, O> {
 
 	public void setParser(EditorConfigParser editorConfigParser);
 	
@@ -29,5 +30,7 @@ public interface EditorConfigHandler<S, O> {
 	public void startOptionValue(Object option, String name);
 
 	public void endOptionValue(Object option, String value, String name);
+
+	public void error(ParseException e);
 
 }

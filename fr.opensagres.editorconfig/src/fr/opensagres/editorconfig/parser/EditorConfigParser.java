@@ -1,19 +1,19 @@
-package fr.opensagres.editorconfig;
+package fr.opensagres.editorconfig.parser;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
-import fr.opensagres.editorconfig.handlers.EditorConfigHandler;
+import fr.opensagres.editorconfig.handlers.IEditorConfigHandler;
 import fr.opensagres.editorconfig.handlers.EditorConfigHandlerAdapter;
 
 public class EditorConfigParser {
 
 	private static final int MIN_BUFFER_SIZE = 10;
 	private static final int DEFAULT_BUFFER_SIZE = 1024;
-	private static final EditorConfigHandler<Object, Object> DEFAULT_HANDLER = new EditorConfigHandlerAdapter<Object, Object>();
+	private static final IEditorConfigHandler<Object, Object> DEFAULT_HANDLER = new EditorConfigHandlerAdapter<Object, Object>();
 
-	private final EditorConfigHandler<Object, Object> handler;
+	private final IEditorConfigHandler<Object, Object> handler;
 	private Reader reader;
 	private char[] buffer;
 	private int bufferOffset;
@@ -25,17 +25,28 @@ public class EditorConfigParser {
 	private StringBuilder captureBuffer;
 	private int captureStart;
 
+	private boolean tolerant;
+
 	public EditorConfigParser() {
 		this(DEFAULT_HANDLER);
 	}
 
 	@SuppressWarnings("unchecked")
-	public EditorConfigParser(EditorConfigHandler<?, ?> handler) {
+	public EditorConfigParser(IEditorConfigHandler<?, ?> handler) {
 		if (handler == null) {
 			throw new NullPointerException("handler is null");
 		}
-		this.handler = (EditorConfigHandler<Object, Object>) handler;
+		this.handler = (IEditorConfigHandler<Object, Object>) handler;
 		handler.setParser(this);
+		setTolerant(false);
+	}
+
+	public void setTolerant(boolean tolerant) {
+		this.tolerant = tolerant;
+	}
+
+	public boolean isTolerant() {
+		return tolerant;
 	}
 
 	/**
@@ -133,6 +144,17 @@ public class EditorConfigParser {
 	}
 
 	private void readLine() throws IOException {
+		try {
+			readLineAndThrowExceptionIfError();
+		} catch (ParseException e) {
+			handler.error(e);
+			if (!isTolerant()) {
+				throw e;
+			}
+		}
+	}
+
+	private void readLineAndThrowExceptionIfError() throws IOException {
 		skipWhiteSpace();
 		if (isNewLine()) {
 			// blank line, do nothing
@@ -242,9 +264,9 @@ public class EditorConfigParser {
 		case MultiPattern:
 			return current == ',' || current == '}';
 		case OptionName:
-			return current == '=';
+			return current == '=' || isWhiteSpace();
 		default:
-			return false;
+			return isWhiteSpace();
 		}
 	}
 

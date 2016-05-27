@@ -1,4 +1,4 @@
-package fr.opensagres.editorconfig;
+package fr.opensagres.editorconfig.parser;
 
 /**
  * An immutable object that represents a location in the parsed text.
@@ -24,7 +24,7 @@ public class Location {
 		this.column = column;
 		this.line = line;
 	}
-
+	
 	@Override
 	public String toString() {
 		return line + ":" + column + " (" + offset + ")";

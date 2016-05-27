@@ -3,8 +3,8 @@ package fr.opensagres.editorconfig.tests;
 import java.io.InputStream;
 import java.util.Scanner;
 
-import fr.opensagres.editorconfig.EditorConfigParser;
 import fr.opensagres.editorconfig.handlers.LoggerEditorConfigHandler;
+import fr.opensagres.editorconfig.parser.EditorConfigParser;
 
 public class Test3 {
 

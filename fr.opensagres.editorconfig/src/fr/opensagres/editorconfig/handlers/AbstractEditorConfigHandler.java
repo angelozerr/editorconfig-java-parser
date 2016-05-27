@@ -1,9 +1,9 @@
 package fr.opensagres.editorconfig.handlers;
 
-import fr.opensagres.editorconfig.EditorConfigParser;
-import fr.opensagres.editorconfig.Location;
+import fr.opensagres.editorconfig.parser.EditorConfigParser;
+import fr.opensagres.editorconfig.parser.Location;
 
-public abstract class AbstractEditorConfigHandler<S, O> implements EditorConfigHandler<S, O> {
+public abstract class AbstractEditorConfigHandler<S, O> implements IEditorConfigHandler<S, O> {
 
 	private EditorConfigParser parser;
 

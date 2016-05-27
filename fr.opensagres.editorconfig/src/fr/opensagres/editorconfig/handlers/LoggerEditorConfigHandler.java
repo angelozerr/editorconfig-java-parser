@@ -1,5 +1,7 @@
 package fr.opensagres.editorconfig.handlers;
 
+import fr.opensagres.editorconfig.parser.ParseException;
+
 public class LoggerEditorConfigHandler<S, O> extends AbstractEditorConfigHandler<S, O> {
 
 	@Override
@@ -62,5 +64,10 @@ public class LoggerEditorConfigHandler<S, O> extends AbstractEditorConfigHandler
 	@Override
 	public void endOptionValue(Object option, String value, String name) {
 		System.err.println("End option value of '" + name + "', value=" + value + " at " + getLocation());
+	}
+
+	@Override
+	public void error(ParseException e) {
+		e.printStackTrace();
 	}
 }
